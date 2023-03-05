@@ -1,0 +1,14 @@
+.quiz-header {
+    font-family: 'Bungee Shade', cursive;
+    color:black;
+}
+
+
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.btn-start, .btn-submit {
+    font-family: 'Vast Shadow', cursive;
+}
