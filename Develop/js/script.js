@@ -113,10 +113,6 @@ var timerInterval = null;
 function endGame() {
   showPage(".three");
   clearInterval(timerInterval);
-  // if timer reaches zero end game
-  // show page with score
-  // initials
-  // return to start
 }
 
 var timeEl = document.querySelector(".time");
@@ -140,3 +136,20 @@ function setTime() {
 // find out which input was selected when the user hits next question
 
 // every interval has an id and you can use clearinterval
+
+
+
+
+// Deselect radio buttons when next button is clicked
+// Initials and score page
+// How to enter your initials to submit to local storage
+// Display high scores
+// Save answers to local storage
+// CSS
+// Comment page
+// Read me
+
+  // if timer reaches zero end game
+  // show page with score
+  // initials
+  // return to start
