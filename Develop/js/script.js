@@ -86,14 +86,20 @@ $(".btn-start").click(function () {
 });
 
 $(".btn-submit").click(function () {
-  questionNumber++;
+  
   loadQuestion(quizData[questionNumber], questionNumber + 1);
+  var selected = $("input[type='radio']:checked").val();
+  console.log(selected);
+  if(selected !== quizData[questionNumber].correct) {
+    secondsLeft-=10;
+  }
   // if(questionNumber > quizData.length) {
   //   return;
   // }
-  // if(questionNumber === 5) {
-  //   showPage(".three");
-  // }
+  if(questionNumber === 4) {
+    showPage(".three");
+  }
+  questionNumber++;
 });
 
 // For proper selection of radio buttons
@@ -120,3 +126,5 @@ function setTime() {
 // showPage(".first");
 
 // find out which input was selected when the user hits next question
+
+// every interval has an id and you can use clearinterval
