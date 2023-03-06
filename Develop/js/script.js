@@ -87,7 +87,7 @@ $(".btn-start").click(function () {
 
 $(".btn-submit").click(function () {
   
-  loadQuestion(quizData[questionNumber], questionNumber + 1);
+  
   var selected = $("input[type='radio']:checked").val();
   console.log(selected);
   if(selected !== quizData[questionNumber].correct) {
@@ -97,9 +97,10 @@ $(".btn-submit").click(function () {
   //   return;
   // }
   if(questionNumber === 4) {
-    showPage(".three");
+    endGame();
   }
   questionNumber++;
+  loadQuestion(quizData[questionNumber], questionNumber + 1);
 });
 
 // For proper selection of radio buttons
@@ -107,6 +108,16 @@ function selected() {
 
 }
 
+var timerInterval = null;
+
+function endGame() {
+  showPage(".three");
+  clearInterval(timerInterval);
+  // if timer reaches zero end game
+  // show page with score
+  // initials
+  // return to start
+}
 
 var timeEl = document.querySelector(".time");
 
@@ -116,9 +127,10 @@ var timerInterval;
 function setTime() {
   timerInterval = setInterval(function () {
     secondsLeft--;
+    console.log("seconds left");
     timeEl.textContent = secondsLeft + " seconds left.";
     if (secondsLeft === 0) {
-      clearInterval(timerInterval);
+      endGame();
     }
   }, 1000);
 }
