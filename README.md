@@ -8,7 +8,7 @@ The motivation behind this project was to create a workspace where users can tes
 
 ## Live URL
 
-https://rmessett15.github.io/Password-Generator/
+ https://rmessett15.github.io/Coding-Quiz/
 
 ## Screenshot
    
