@@ -11,8 +11,8 @@ The motivation behind this project was to create a workspace where users can tes
 https://rmessett15.github.io/Password-Generator/
 
 ## Screenshot
-
-![password-generator-screenshot](https://user-images.githubusercontent.com/120127903/221250174-6e2763e9-61a5-43d4-9947-c364396f4158.png)
+   
+![ScreenshotChallenge4](https://user-images.githubusercontent.com/120127903/223318298-06abf8b4-2b21-4983-85c0-b535d5c8a374.png)
 
 ## Technologies Used
 
