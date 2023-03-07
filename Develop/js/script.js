@@ -43,28 +43,13 @@ var quizData = [
   },
 ];
 
-// var quizContainer = document.getElementById("quiz-container");
-// var page = document.getElementsByClass("page");
-// var one = document.getElementsByClass("one");
-// var two = document.getElementsByClass("two");
-// var quizHeader = document.getElementsByClass("quiz-header");
-// var btnStart = document.getElementsByClass("btn-start");
-// var quizQuestions = document.getElementById("quizQuestions");
-// var question = document.getElementsByClass("question");
-// var a = document.getElementById("a");
-// var b = document.getElementById("b");
-// var c = document.getElementById("c");
-// var d = document.getElementById("d");
-// var time = document.getElementsByClass("time");
-// var btnSubmit = document.getElementsByClass("btn-submit");
-
 var gamePoints = 0;
-
 
 function loadQuestion(jimmy, questionNumber) {
   // This question takes a question dictionary and renders it on the page
   $(".quiz-header").text("Question " + questionNumber);
   $(".question").text(jimmy.question);
+  // The line commented out below is just another way to render the questions and possible answers to the page
   // $("label[for='a']").text(jimmy.a);
   $("#label-a").text(jimmy.a);
   $("#label-b").text(jimmy.b);
@@ -88,19 +73,19 @@ $(".btn-start").click(function () {
   loadQuestion(quizData[questionNumber], questionNumber+1);
 });
 
+// Deselect radio buttons when next button is clicked
 $(".btn-submit").click(function () {
   var selected = $("input[type='radio']:checked").val();
   console.log(selected);
-  if(selected !== quizData[questionNumber].correct) {
-    secondsLeft-=10;
+  // Find out which input was selected when the user hits next question
+  if (selected !== quizData[questionNumber].correct) {
+    secondsLeft -= 10;
   } else {
-    gamePoints+=10;
+    gamePoints += 10;
     $(".points").text("Points: " + gamePoints);
   }
-  // if(questionNumber > quizData.length) {
-  //   return;
-  // }
-  if(questionNumber === 4) {
+
+  if (questionNumber === 4) {
     endGame();
     return;
   }
@@ -108,19 +93,12 @@ $(".btn-submit").click(function () {
   loadQuestion(quizData[questionNumber], questionNumber + 1);
 });
 
-
-
-
-// For proper selection of radio buttons
-function selected() {
-
-}
-
 var secondsLeft = 90;
 var timerInterval = null;
 
 function endGame() {
   showPage(".three");
+  // Every interval has an id and you can use clearinterval
   clearInterval(timerInterval);
   secondsLeft = 90;
   $("#points").text(gamePoints);
@@ -128,98 +106,46 @@ function endGame() {
 
 var timeEl = document.querySelector(".time");
 
-
-
-
 function setTime() {
   timerInterval = setInterval(function () {
     secondsLeft--;
     console.log("seconds left");
     timeEl.textContent = secondsLeft + " seconds left.";
+    // If timer reaches zero end game
     if (secondsLeft <= 0) {
       endGame();
     }
   }, 1000);
 }
 
-
-
-
-
-
-
-
-// Local storage attempt
-// var initials = "";
-
-//  var storageInitials = localStorage.getItem("initials");
-//  var storageScore = localStorage.getItem("points");
+// Local storage
  
-
 var initials = "";
 
 $(".btn-score").click(function() {
   var initials = $("input[type='text']").val();
   console.log(typeof localStorage.getItem("points"), "type");
   
- 
   $(".points").text("Points: " + 0);
     if (localStorage.getItem("points") == null || gamePoints > localStorage.getItem("points")) {
       console.log("got to the if block");
+      // Save answers to local storage
       localStorage.setItem("initials", initials);
-      
       localStorage.setItem("points", gamePoints);
     } 
-    
-
-
-    // else {
-    //   return;
-    // }
 });
 
-
-
+// Initials and score page
+// Show page with score
 $(".btn-score").click(function () {
   showPage(".four");
   $(".winner").text(localStorage.getItem("initials") + " " + localStorage.getItem("points"));
-
 });
 
+// Return to start
 $(".btn-restart").click(function () {
   showPage(".one");
   $(".quiz-header").text("Coding Quiz");
   gamePoints = 0;
   $("input[type='text']").val("");
-  
 });
-
-
-
-
-
-
-
-
-// showPage(".first");
-
-// find out which input was selected when the user hits next question
-
-// every interval has an id and you can use clearinterval
-
-
-
-
-// Deselect radio buttons when next button is clicked
-// Initials and score page
-// How to enter your initials to submit to local storage
-// Display high scores
-// Save answers to local storage
-// CSS
-// Comment page
-// Read me
-
-  // if timer reaches zero end game
-  // show page with score
-  // initials
-  // return to start

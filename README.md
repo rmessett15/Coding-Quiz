@@ -1,12 +1,10 @@
 # Coding-Quiz
 
-# <Creating password generator by randomization>
+# <Creating Coding Quiz>
 
 ## Description
 
 The motivation behind this project was to create a workspace where users can test themselves or brush up on knowledge about coding basics. Once the user clicks the "Start Quiz" button, the quiz will start and a 90 second timer will begin. Each question the user selects correctly will a-lot them ten points. An incorrect selection will penalize the user, in turn decrementing their total time by ten seconds. Once the user completes the quiz, they will be asked to an input their initials. The user with the highest scores initials will be displayed on the "High Score" page, and the user will have the option of restarting the quiz. Through this process I have learned by direct application how much simpler JQuery can make the lives of developers, and how difficult it is to refactor JQuery code back into vanilla JavaScript as well as how important the order of operations is when calling certain functions, overall code cleanliness, and organization. 
-
-The motivation behind this project was to use JavaScript to build out a password generator through randomization using the Math object in conjunction with the methods .random and .floor as to create safe and strong password for employees that provides greater security. The password generator takes in data from specific prompts that the user inputs and returns a password that fits within the criteria the user chooses. This will allow for each user to create a unique and secure password. Through this process I have implemented many of the techniques we have been learning about in JavaScript such as the use of string variables, functions, conditional if statements, and iteration. I furthered my understanding of these techniques in practical application, learned about the correct ES6 syntax (let & const), when one should use a while loops vs a for loop when iterating, empty string variables, prompts, and parseInt methods.
 
 ## Live URL
 
