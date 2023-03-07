@@ -13,7 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Vast+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bungee+Shade&family=Vast+Shadow&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./Develop/css/style.css" />
     <title>Coding Quiz</title>
@@ -22,7 +22,7 @@
     <div id="quiz-container"></div>
     <div class="page one">
       <h2 class="quiz-header">Coding Quiz</h2>   
-      <button class="btn-start text-bg-info p-3 rounded">Start Quiz!</button>
+      <button class="btn-start">Start Quiz!</button>
     </div>
     <div class="page two" id="quizQuestions">
       <h5 class="quiz-header"></h5>
@@ -46,16 +46,23 @@
             </li>
         </ul>
       <p class="time">Timer</p>
+      <p class="points">Points: 0</p>
       <!-- The line of code below is using bootstrap styling and needs to be fixed -->
-      <button class="btn-submit text-bg-info p-3 rounded">Next Question</button>
+      <button class="btn-submit">Next Question</button>
     </div>
 
     <div class="page three">
         <h2 class="score-page">All done!</h2>
-        <p>Your final score is ___.</p>
+        <p>Your final score is <span id="points">_____.</span></p>
         <p>Enter initials:</p>
         <input type="text">
         <button class="btn-score">Submit</button>
+    </div>
+
+    <div class="page four">
+        <h2>High Scores</h2>
+        <p class="winner"></p>
+        <button class="btn-restart">Back to start</button>
     </div>
 
     <!-- <div class="page three" id="quizQuestions">

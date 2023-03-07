@@ -58,6 +58,9 @@ var quizData = [
 // var time = document.getElementsByClass("time");
 // var btnSubmit = document.getElementsByClass("btn-submit");
 
+var gamePoints = 0;
+
+
 function loadQuestion(jimmy, questionNumber) {
   // This question takes a question dictionary and renders it on the page
   $(".quiz-header").text("Question " + questionNumber);
@@ -86,50 +89,117 @@ $(".btn-start").click(function () {
 });
 
 $(".btn-submit").click(function () {
-  
-  
   var selected = $("input[type='radio']:checked").val();
   console.log(selected);
   if(selected !== quizData[questionNumber].correct) {
     secondsLeft-=10;
+  } else {
+    gamePoints+=10;
+    $(".points").text("Points: " + gamePoints);
   }
   // if(questionNumber > quizData.length) {
   //   return;
   // }
   if(questionNumber === 4) {
     endGame();
+    return;
   }
   questionNumber++;
   loadQuestion(quizData[questionNumber], questionNumber + 1);
 });
+
+
+
 
 // For proper selection of radio buttons
 function selected() {
 
 }
 
+var secondsLeft = 90;
 var timerInterval = null;
 
 function endGame() {
   showPage(".three");
   clearInterval(timerInterval);
+  secondsLeft = 90;
+  $("#points").text(gamePoints);
 }
 
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 90;
-var timerInterval;
+
+
 
 function setTime() {
   timerInterval = setInterval(function () {
     secondsLeft--;
     console.log("seconds left");
     timeEl.textContent = secondsLeft + " seconds left.";
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       endGame();
     }
   }, 1000);
 }
+
+
+
+
+
+
+
+
+// Local storage attempt
+// var initials = "";
+
+//  var storageInitials = localStorage.getItem("initials");
+//  var storageScore = localStorage.getItem("points");
+ 
+
+var initials = "";
+
+$(".btn-score").click(function() {
+  var initials = $("input[type='text']").val();
+  console.log(typeof localStorage.getItem("points"), "type");
+  
+ 
+  $(".points").text("Points: " + 0);
+    if (localStorage.getItem("points") == null || gamePoints > localStorage.getItem("points")) {
+      console.log("got to the if block");
+      localStorage.setItem("initials", initials);
+      
+      localStorage.setItem("points", gamePoints);
+    } 
+    
+
+
+    // else {
+    //   return;
+    // }
+});
+
+
+
+$(".btn-score").click(function () {
+  showPage(".four");
+  $(".winner").text(localStorage.getItem("initials") + " " + localStorage.getItem("points"));
+
+});
+
+$(".btn-restart").click(function () {
+  showPage(".one");
+  $(".quiz-header").text("Coding Quiz");
+  gamePoints = 0;
+  $("input[type='text']").val("");
+  
+});
+
+
+
+
+
+
+
 
 // showPage(".first");
 
