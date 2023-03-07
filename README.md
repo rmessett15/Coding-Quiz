@@ -21,7 +21,7 @@ This project utilizes HTML, CSS, JavaScript, JQuery, & Google Fonts
 ## Installation
 
 1. Clone the repo:
-   git clone https://github.com/rmessett15/Password-Generator.git
+   git clone https://github.com/rmessett15/Coding-Quiz.git
 
 2. Open in VS Code. If you do not have VS code you must install it.
 
