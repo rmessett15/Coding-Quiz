@@ -31,7 +31,7 @@ Worked with a a variety of students to complete this challenge (ie. Brian Hamlin
 
 ## Features
 
-Features of this applicat, on are the utilization of local storage to save users high scores, a timer which ony decrements time when the user answers a question incorrectly, Google Fonts, and the use of a gradint generator.
+Features of this application, on are the utilization of local storage to save users high scores, a timer which ony decrements time when the user answers a question incorrectly, Google Fonts, and the use of a gradient generator.
 
 ## How to Contribute
 
